@@ -1,0 +1,30 @@
+<div class="todo-item" (click)="onTodoClicked()" [class.completed]="todo.completed">
+    <div class="check-box">
+        <i class="fa fa-check"></i>
+    </div>
+
+    <div class="todo-text">
+        {{ todo.text }}
+    </div>
+
+    <div class="todo-controls-box" (click)="$event.stopPropagation()">
+        <div class="todo-control-button">
+            <i class="fa fa-trash" style="color: #D92626;"></i>
+        </div>
+
+        <div class="dropdown">
+            <div class="todo-control-button">
+                <i class="fa fa-ellipsis-h"></i>
+            </div>
+            <div class="dropdown-content">
+                <div class="todo-control-button" (click)="onEditClicked()">
+                    <i class="fa fa-edit">Edit</i>
+                </div>
+                <div class="todo-control-button">
+                    <i class="fa fa-clock">Reminder</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

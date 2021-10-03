@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <label for="brand" class="brand mt-4">QUICK-TODO</label>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-2">
+            <label for="Tasks"><b> Tasks-All</b></label>
+            <div class="menu mt-3">
+                <li style="color: 
+            #0DC800;">Personal</li>
+                <li class="mt-2" style="color:#FB9B61 ;">Work</li>
+                <li class="mt-2" style="color: #148EFF;">University</li>
+                <li class="mt-2" style="color: #148EFF;">Add New +</li>
+            </div>
+            <div class="list mt-3">
+                <label for="Lists" class="mt-4"><b> Lists</b></label>
+                <li class="mt-2" style="color: #D92626;">Shooping</li>
+                <li class="mt-2" style="color: #E100E5;">Bucket List</li>
+                <li class="mt-2" style="color: #148EFF;">Add-New +</li>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="add-todo-box">
+                <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+                    <div class="input-group mb-3">
+                        <input ngModel minlength="2" #todoTextField="ngModel" required name="text" type="text" class="form-control" placeholder="Add New Task">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">+ ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- <div *ngIf="todoTextField.errors.invalid">
+
+                        <p class="help" style="color: #D92626;" *ngIf="todoTextField.errors.required">Please enter your todo</p>
+                        <p class="help" style="color: #D92626;" *ngIf="todoTextField.errors.minlength">Todo text must be at least 2 characters</p>
+
+                    </div> -->
+                </form>
+            </div>
+
+            <section class="section">
+
+                <div class="todos-list">
+                <app-todo-item *ngFor="let todo of dashboard"
+                 [todo]="todo" 
+                 (todoClicked)="toggleCompleted(todo)"
+                 (editClicked)="editTodo(todo)"
+                 ></app-todo-item>
+                </div>
+
+            </section>
+        </div>
+    </div>
+</div>
