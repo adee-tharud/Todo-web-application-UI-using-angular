@@ -9,20 +9,26 @@ import { DashboardComponent} from './Components/dashboard/dashboard.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { TodoItemComponent } from './todo-item/todo-item.component';
+import { EditTodoDialogComponent } from './Components/edit-todo-dialog/edit-todo-dialog.component';
+
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    EditTodoDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

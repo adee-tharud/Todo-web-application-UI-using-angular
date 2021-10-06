@@ -22,16 +22,13 @@
             </div>
         </div>
         <div class="col-8">
-            <div class="add-todo-box">
+            <div class="add-todo-box add-todo-box-container">
                 <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
-                    <div class="input-group mb-3">
-                        <input ngModel minlength="2" #todoTextField="ngModel" required name="text" type="text" class="form-control" placeholder="Add New Task">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">+ ADD</button>
-                        </div>
+                    <div class="input-group mb-3 ">
+                        <input ngModel  #todoTextField="ngModel" required minlength="2" name="text" type="text" class="form-control" placeholder="Add New Task"> 
                     </div>
 
-                    <!-- <div *ngIf="todoTextField.errors.invalid">
+                    <!-- <div *ngIf="todoTextField.invalid && showValidationErrors">
 
                         <p class="help" style="color: #D92626;" *ngIf="todoTextField.errors.required">Please enter your todo</p>
                         <p class="help" style="color: #D92626;" *ngIf="todoTextField.errors.minlength">Todo text must be at least 2 characters</p>
@@ -47,6 +44,7 @@
                  [todo]="todo" 
                  (todoClicked)="toggleCompleted(todo)"
                  (editClicked)="editTodo(todo)"
+                 (deleteClicked)="deleteTodo(todo)"
                  ></app-todo-item>
                 </div>
 

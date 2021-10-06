@@ -7,8 +7,8 @@ import { Todo } from './todo.model';
 export class DataService {
 
   dashboard:Todo[] =[
-    new Todo('this is a test!', false),
-    new Todo('Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut odit laboriosam tempora. Nihil minima inventore sapiente alias assumenda labore qui laborum repellat reiciendis aperiam numquam, dolore ipsum dicta molestiae deserunt.', true)
+    // new Todo('this is a test!', false),
+    // new Todo('Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut odit laboriosam tempora. Nihil minima inventore sapiente alias assumenda labore qui laborum repellat reiciendis aperiam numquam, dolore ipsum dicta molestiae deserunt.', true)
   ]
 
   constructor() { }

@@ -8,7 +8,7 @@
     </div>
 
     <div class="todo-controls-box" (click)="$event.stopPropagation()">
-        <div class="todo-control-button">
+        <div class="todo-control-button" (click)="onDeleteClicked()">
             <i class="fa fa-trash" style="color: #D92626;"></i>
         </div>
 

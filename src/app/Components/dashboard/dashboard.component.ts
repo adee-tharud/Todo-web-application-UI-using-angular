@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { DataService } from 'src/app/shared/data.service';
 import { Todo } from 'src/app/shared/todo.model';
+import { EditTodoDialogComponent } from '../edit-todo-dialog/edit-todo-dialog.component';
 
 
 
@@ -14,28 +16,22 @@ import { Todo } from 'src/app/shared/todo.model';
 export class DashboardComponent implements OnInit {
 
   dashboard :Todo[]
+  showValidationErrors :boolean
 
   
-// list:any[]=[];
 
-// addTask(item:string) {
-//  this.list.push({id:this.list.length,name:item});
-// }
-
-
-// removeTask(id:number) {
-// this.list=this.list.filter(item=>item.id!==id);
-// }
-  
    
- constructor(private dataService: DataService) { }
+ constructor(private dataService: DataService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.dashboard = this.dataService.getAllTodos()
   }
 
   onFormSubmit(form:NgForm){
-    if(form.invalid) return alert("form is invalid")
+    console.log('FORM SUBMITED')
+    console.log(form)
+
+    if(form.invalid) return alert("Form is Invalid")
 
     this.dataService.addTodo(new Todo(form.value.text))
 
@@ -50,12 +46,22 @@ export class DashboardComponent implements OnInit {
 
       const index = this.dashboard.indexOf(todo)
 
+      let dialogRef = this.dialog.open(EditTodoDialogComponent, {
+        
+        width: '700px',
+        data: todo
+      });
 
+      dialogRef.afterClosed().subscribe((result) =>{
+        if(result) {
+          this.dataService.updateTodo(index, result)
+        }
+      })
+    }
 
-
-
-
-      // this.dataService.updateTodo()
+    deleteTodo(todo:Todo){
+      const index = this.dashboard.indexOf(todo)
+      this.dataService.deleteTodo(index)
     }
   }
 
