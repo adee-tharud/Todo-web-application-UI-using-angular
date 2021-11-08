@@ -10,7 +10,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { EditTodoDialogComponent } from './Components/edit-todo-dialog/edit-todo-dialog.component';
-
+import { DragDropModule } from '@angular/cdk/drag-drop'
 import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
@@ -27,7 +27,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     FontAwesomeModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    DragDropModule
 
   ],
   providers: [],

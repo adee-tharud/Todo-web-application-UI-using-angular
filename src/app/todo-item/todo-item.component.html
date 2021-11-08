@@ -1,11 +1,12 @@
-<div class="todo-item" (click)="onTodoClicked()" [class.completed]="todo.completed">
+<div class="todo-item " [class.completed]="todo.completed">
     <div class="check-box">
         <i class="fa fa-check"></i>
     </div>
 
     <div class="todo-text">
-        {{ todo.text }}
+         {{ todo.text }}
     </div>
+    
 
     <div class="todo-controls-box" (click)="$event.stopPropagation()">
         <div class="todo-control-button" (click)="onDeleteClicked()">
